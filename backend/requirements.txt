@@ -1,0 +1,6 @@
+llama-index
+llama-index-utils-workflow
+llama-index-callbacks-arize-phoenix
+python-dotenv
+fastapi
+uvicorn

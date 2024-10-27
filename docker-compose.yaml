@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_CHAT_API_URL=http://localhost:8000/chat
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PHOENIX_API_KEY=XXXXXXXXXX
+      - OPENAI_API_KEY=XXXXXXXXXX
+    volumes:
+      - ./backend:/app
+      - ./backend/sample_database.json:/app/sample_database.json
+
